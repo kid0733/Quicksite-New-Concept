@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-
+            <div class="min-h-[20vh] bg-[#1d211e]"></div>
             <div class="min-w-[100vw] bg-[#1d211e]">
                 <div id="imgCarouselText">
                     <p class="text-[5vh] leading-[5vh] font-bold green03 max-w-[100vw]  mt-[10vh] p-10">Our Templates
@@ -72,7 +72,7 @@
                 </div>
                 <!-- Image Carousel -->
 
-                <div class="marquee">
+                <div class="marquee" id="imgCarousel">
                     <div class="marquee-inner">
                         <img src="assets/Beauty.png" alt="Image 1" />
                         <img src="assets/coffee.png" alt="Image 3" />
@@ -91,14 +91,69 @@
 
             </div>
 
+            <!-- Features -->
+            <!-- OUR TEAM -->
+            <div
+                class="flex flex-col flex-1 w-full z-10 items-center justify-flex-start bg-[#1d211e] pt-[5vh] min-h-[100vh]">
+                <h1 class="grey-2 font-light text-[3vh] text-center max-w-[90vw]" id="our_team_title">
+                    Why Choose Us?
+                </h1>
+                <p class="font-light text-[2vh] max-w-[60vw] mt-[10vh] text-center" id="our_team_text">
+                    Passionate, skilled and dedicated to delivering exceptional solutions.
+                </p>
+                <div class="team-slider" id="team_slider_container">
+                    <div class="team-slider-inner">
+                        <div class="team-slider-item">
+                            <img src="assets/Beauty.png" alt="Quick and Simple Access" />
+                            <div class="text-container">
+                                <h2 class="title green0 text-[3vh]">Quick and Simple Access</h2>
+                                <h2 class="subtitle green03 text-[2vh]">Streamlined Meta Content</h2>
+                                <p class="description">"Effortlessly customize your personal website with our intuitive
+                                    HTML head section/tag, designed for simple editing and ensuring your site reflects
+                                    your unique style and needs."</p>
+                            </div>
+                        </div>
+                        <div class="team-slider-item">
+                            <img src="assets/Furniture.png" alt="Customisable Contents" />
+                            <div class="text-container">
+                                <h2 class="title green0 text-[3vh]">Swift Content Features</h2>
+                                <h2 class="subtitle green03 text-[2vh]">Customisable Contents</h2>
+                                <p class="description">Instantly access customizable texts, SVGs and images contents from templates, empowering you to edit content with previews to ensure seamless adjustments</p>
+                            </div>
+                        </div>
+                        <div class="team-slider-item">
+                            <img src="assets/d-kor.png" alt="Smart Website Builder" />
+                            <div class="text-container">
+                                <h2 class="title">AI-Assisted Website Creation</h2>
+                                <h2 class="subtitle green03">Smart Website Builder</h2>
+                                <p class="description">"Leverage advanced AI technology to guide and assist you in building your website, ensuring a seamless and efficient creation process tailored to your needs."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-slider-controls">
+                        <button class="team-slider-control" id="prev">&lt;</button>
+                        <button class="team-slider-control" id="next">&gt;</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- CarouselTitle -->
-            <p class="text-[5vh] mt-[5vh] max-w-[60vw] green06 font-bold opacity-50 mb-[5vh]">
-                Trusted By
-            </p>
+
+
+            <!-- BUFFER   -->
+             <div class="min-h-[20vh] bg-[#1d211e]"></div>
+            <!-- CAROUSEL -->
+
+
+
+
+
             <!-- Carousel -->
-            <div>
-                <div class="main-container">
+            <div class="bg-[#1d211e] min-w-[100vw] overflow-hidden ">
+                <!-- CarouselTitle -->
+                <p class="text-[5vh]  green06 font-bold opacity-50 mb-[5vh]">
+                    Trusted By
+                </p>
+                <div class="main-container min-w-[0vw] max-w-[80vw] ">
                     <div class="carousel-container">
                         <!--  slider 1  -->
                         <div class="carousel" style="
@@ -148,11 +203,14 @@
             </div>
         </div>
     </div>
-
+    <div class="min-h-[100vh]"></div>
     <!-- SCRIPTS -->
     <!-- EMBLA  -->
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <script src="https://unpkg.com/embla-carousel-auto-scroll@8.1.7/embla-carousel-auto-scroll.umd.js"></script>
+    <!-- VANTA -->
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- VANTA -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
     <script src="https://www.vantajs.com/dist/vanta.trunk.min.js"></script>
@@ -160,6 +218,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- USER SCRIPT -->
     <script src="script.js"></script>
 </body>
