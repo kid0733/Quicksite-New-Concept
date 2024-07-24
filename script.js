@@ -1,3 +1,6 @@
+
+
+
 VANTA.TRUNK({
     el: "#background",
     mouseControls: true,
@@ -43,10 +46,43 @@ window.onload = function () {
         y: 500
     }, 0)
     timeline.from("#title,#title1", 1, { scale: 0.5 }, 0)
+    timeline.from("#imgCarouselText", 1, { scale: 0.5 }, 0)
     timeline.from("#heroText", 5, { opacity: 0 }, 0)
 
 
 }
 
+// 
+// Img Carousel
+// 
+document.addEventListener("DOMContentLoaded", () => {
+	const marquee = document.querySelector(".marquee-inner");
+	const speed = 1; // Scrolling Speed
+	let scrollAmount = 0;
+	let isHovered = false;
 
+	// Duplicates the content
+	const marqueeContent = marquee.innerHTML;
+	marquee.innerHTML += marqueeContent;
 
+	const startScrolling = () => {
+		if (!isHovered) {
+			scrollAmount -= speed;
+			if (Math.abs(scrollAmount) >= marquee.scrollWidth / 2) {
+				scrollAmount = 0;
+			}
+			marquee.style.transform = `translateX(${scrollAmount}px)`;
+		}
+		requestAnimationFrame(startScrolling);
+	};
+
+	marquee.addEventListener("mouseover", () => {
+		isHovered = true;
+	});
+
+	marquee.addEventListener("mouseout", () => {
+		isHovered = false;
+	});
+
+	startScrolling();
+});
