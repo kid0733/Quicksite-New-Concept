@@ -25,18 +25,23 @@
 <body>
     <div class="flex flex-col items-stretch h-full w-full">
         <!-- NAVBAR -->
-        <nav class="relative z-10">
-            <div class="flex sticky flex-1 flex-col justify-between relative mx-auto px-8 py-5">
-                <h1 class="text-base text-center">
-                    <span class="font-medium align-middle green05">QuickSite</span>
-                </h1>
-            </div>
-        </nav>
+        <!-- NAVBAR -->
+        <div class="nav-container">
+            <button class="hamburger" onclick="toggleNav()">☰</button>
+            <ul class="nav-items">
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a class="active" href="#">Features</a></li>
+                <li><a class="active" href="#">Team</a></li>
+                <li><a class="active" href="#">Pricing</a></li>
+                <li><a class="active" href="#">CONTACT</a></li>
+            </ul>
+        </div>
 
         <!-- BACKGROUND -->
         <div class="top-0 left-0 w-full h-full z-0" id="background"></div>
 
         <!-- HeroSection -->
+         <div class="w-full h-[10vh]"></div>
         <div class="flex flex-col flex-1 w-full z-10 items-center justify-flex-start mt-[5vh]">
             <div>
                 <p class="text-[5vh] leading-[5vh] font-bold green08 max-w-[60vw]" id="title">Build and Host for Free
@@ -70,6 +75,9 @@
                         make your site stand out.
                     </p>
                 </div>
+
+                <!-- SVG Animation -->
+
                 <!-- Image Carousel -->
 
                 <div class="marquee" id="imgCarousel">
@@ -85,143 +93,250 @@
 
                     </div>
                 </div>
-
-
-
-
             </div>
-
-            <!-- Features -->
-            <!-- OUR TEAM -->
-            <div
-                class="flex flex-col flex-1 w-full z-10 items-center justify-flex-start bg-[#1d211e] pt-[5vh] min-h-[100vh]">
-                <h1 class="grey-2 font-light text-[3vh] text-center max-w-[90vw]" id="our_team_title">
-                    Why Choose Us?
-                </h1>
-                <p class="font-light text-[2vh] max-w-[60vw] mt-[10vh] text-center" id="our_team_text">
-                    Passionate, skilled and dedicated to delivering exceptional solutions.
-                </p>
-                <div class="team-slider" id="team_slider_container">
-                    <div class="team-slider-inner">
-                        <div class="team-slider-item">
-                            <img src="assets/Beauty.png" alt="Quick and Simple Access" />
-                            <div class="text-container">
-                                <h2 class="title green0 text-[3vh]">Quick and Simple Access</h2>
-                                <h2 class="subtitle green03 text-[2vh]">Streamlined Meta Content</h2>
-                                <p class="description">"Effortlessly customize your personal website with our intuitive
-                                    HTML head section/tag, designed for simple editing and ensuring your site reflects
-                                    your unique style and needs."</p>
-                            </div>
-                        </div>
-                        <div class="team-slider-item">
-                            <img src="assets/Furniture.png" alt="Customisable Contents" />
-                            <div class="text-container">
-                                <h2 class="title green0 text-[3vh]">Swift Content Features</h2>
-                                <h2 class="subtitle green03 text-[2vh]">Customisable Contents</h2>
-                                <p class="description">Instantly access customizable texts, SVGs and images contents from templates, empowering you to edit content with previews to ensure seamless adjustments</p>
-                            </div>
-                        </div>
-                        <div class="team-slider-item">
-                            <img src="assets/d-kor.png" alt="Smart Website Builder" />
-                            <div class="text-container">
-                                <h2 class="title">AI-Assisted Website Creation</h2>
-                                <h2 class="subtitle green03">Smart Website Builder</h2>
-                                <p class="description">"Leverage advanced AI technology to guide and assist you in building your website, ensuring a seamless and efficient creation process tailored to your needs."</p>
-                            </div>
-                        </div>
+            <!-- Features Section -->
+            <div class="min-h-[100vh] flex flex-col justify-center items-center overflow-hidden">
+                <div class="flex flex-col flex-1 w-[90vw] z-10 items-center justify-flex-start pt-[5vh] min-h-full my-[5vh] rounded-[2vh] overflow-hidden"
+                    id="featuresCarousel">
+                    <div id="imgCarouselText2">
+                        <p id="featuresCarouselTitle"
+                            class="text-[5vh] leading-[5vh] font-bold green08 text-center max-w-[100vw] p-10 spinnaker">
+                            Our Features</p>
+                        <p id="featuresCarouselText"
+                            class="text-[2vh] leading-[3vh] font-regular green08 text-center max-w-[100vw] p-10 spinnaker">
+                            Discover our exclusive collection of website templates, each designed to elevate your online
+                            presence with style and functionality. Perfect for businesses, personal blogs, or creative
+                            portfolios, these templates will make your site stand out.
+                        </p>
                     </div>
-                    <div class="team-slider-controls">
-                        <button class="team-slider-control" id="prev">&lt;</button>
-                        <button class="team-slider-control" id="next">&gt;</button>
+                    <!-- CAROUSEL SLIDER -->
+                    <div class="features-intro-slider bg-[#033810] max-w-[85vw] rounded-[2vh]"
+                        id="features_intro_slider_container">
+                        <div class="features-intro-slider-inner">
+                            <!-- CAROUSEL ITEM 1 -->
+                            <div class="features-intro-slider-item">
+                                <div class="features-intro-text-container">
+                                    <h2 class="features-intro-title green05 text-[4.8vh]">
+                                        <span class="green04">Enhance and Optimize </span> Your Meta Content
+                                    </h2>
+                                    <div>
+                                        <button class="button spinnaker mb-[2vh]">Try Free Now</button>
+                                    </div>
+                                    <p class="features-intro-description green01">
+                                        Effortlessly customize your personal website with our intuitive HTML head
+                                        section/tag, designed for simple editing and ensuring your site reflects your
+                                        unique style and needs.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/bgTtETjoWZLWPiqlX53f.png"
+                                        alt="Smart Website Builder" class="features-intro-img h-[40vh] w-[40vw]" />
+                                </div>
+                            </div>
+                            <!-- CAROUSEL ITEM 2 -->
+                            <div class="features-intro-slider-item">
+                                <div class="features-intro-text-container">
+                                    <h2 class="features-intro-title sand05 text-[4vh]">
+                                        <span class="green04">Swift, Customizable, Effective</span> Meta Content
+                                        Features
+                                    </h2>
+                                    <div>
+                                        <button class="button spinnaker mb-[2vh]">Try Free Now</button>
+                                    </div>
+                                    <p class="features-intro-description green01">
+                                        Instantly access customizable texts, SVGs and images contents from templates,
+                                        empowering you to edit content with previews to ensure seamless adjustments.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/TFWROifbpnhpVSsvcEfs.png"
+                                        alt="Smart Website Builder" class="features-intro-img h-[40vh] w-[40vw]" />
+                                </div>
+                            </div>
+                            <!-- CAROUSEL ITEM 3 -->
+                            <div class="features-intro-slider-item">
+                                <div class="features-intro-text-container">
+                                    <h2 class="features-intro-title sand05 text-[4.8vh]">
+                                        <span class="green04">Smart, AI-Assisted</span> Website Creation Tool
+                                    </h2>
+                                    <div>
+                                        <button class="button spinnaker mb-[2vh]">Try Free Now</button>
+                                    </div>
+                                    <p class="features-intro-description green01">
+                                        Leverage advanced AI technology to guide and assist you in building your
+                                        website, ensuring a seamless and efficient creation process tailored to your
+                                        needs.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/rSLFxcVZ0onAihUzK1K3.png"
+                                        alt="Smart Website Builder" class="features-intro-img h-[40vh] w-[40vw]" />
+                                </div>
+                            </div>
+                            <!-- CAROUSEL ITEM 4 -->
+
+                            <!-- Add more carousel items as needed -->
+                        </div>
+                        <div class="features-intro-slider-controls">
+                            <button class="features-intro-slider-control" id="features_intro_prev">&lt;</button>
+                            <button class="features-intro-slider-control" id="features_intro_next">&gt;</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-
             <!-- BUFFER   -->
-             <div class="min-h-[20vh] bg-[#1d211e]"></div>
-            <!-- CAROUSEL -->
+
+            <!-- MOBILE VIEW CAROUSEL -->
+
+            <div class="min-w-[100vw] bg-[#1d211e]" id="mobileViewCarousel">
+                <div id="infoSectionText">
+                    <p id="mobileCarouselTitle"
+                        class="text-[5vh] leading-[5vh] font-bold green04 max-w-[100vw] mt-[10vh] p-10">Create
+                        with AI, Deploy Instantly</p>
+                    <p id="mobileCarouselText" class="text-[2vh] leading-[3vh] font-medium green02 max-w-[100vw] p-10">
+                        Break Free from
+                        Unclear Expectations, Beat Short Deadlines, and Conquer Limited Budgets to Build Your Dream
+                        Product!</p>
+                </div>
+                <!-- SVG Animation -->
+                <div class="blur">
+                    <!-- SVG Animation -->
+                    <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+                        <defs>
+                            <style>
+                                @keyframes rotate {
+                                    0% {
+                                        transform: rotate(0deg);
+                                    }
+
+                                    100% {
+                                        transform: rotate(360deg);
+                                    }
+                                }
+
+                                .out-top {
+                                    animation: rotate 10s linear infinite;
+                                    transform-origin: 13px 25px;
+                                }
+
+                                .in-top {
+                                    animation: rotate 10s linear infinite;
+                                    transform-origin: 13px 25px;
+                                }
+
+                                .out-bottom {
+                                    animation: rotate 25s linear infinite;
+                                    transform-origin: 84px 93px;
+                                }
+
+                                .in-bottom {
+                                    animation: rotate 15s linear infinite;
+                                    transform-origin: 84px 93px;
+                                }
+                            </style>
+                        </defs>
+                        <path fill="#256924" class="out-top"
+                            d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />
+                        <path fill="#76b785" class="in-top"
+                            d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z" />
+                        <path fill="#409454" class="out-bottom"
+                            d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z" />
+                        <path fill="#00f5d4" class="in-bottom"
+                            d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z" />
+                    </svg>
+                </div>
+                <!-- Image Carousel -->
+                <div class="mobile-carousel" id="imgCarousel">
+                    <div class="mobile-carousel-inner">
+                        <img src="assets/Mobile-001.png" alt="Beauty Template" />
+                        <img src="assets/Laptop-001.png" alt="Coffee Template" />
+                        <img src="assets/Mobile-002.png" alt="Cooking Template" />
+                        <img src="assets/Laptop-002.png" alt="D-Kor Template" />
+                        <img src="assets/Mobile-003.png" alt="Pashmina Template" />
+                        <img src="assets/Laptop-003.png" alt="Education Template" />
+                    </div>
+                </div>
 
 
 
 
-
-            <!-- Carousel -->
-            <div class="bg-[#1d211e] min-w-[100vw] overflow-hidden ">
-                <!-- CarouselTitle -->
-                <p class="text-[5vh]  green06 font-bold opacity-50 mb-[5vh]">
-                    Trusted By
-                </p>
-                <div class="main-container min-w-[0vw] max-w-[80vw] ">
-                    <div class="carousel-container">
-                        <!--  slider 1  -->
-                        <div class="carousel" style="
+                <!-- Carousel -->
+                <div class="bg-[#1d211e] min-w-[100vw] overflow-hidden ">
+                    <!-- CarouselTitle -->
+                    <p class="text-[5vh]  green06 font-bold opacity-50 mb-[5vh]">
+                        Trusted By
+                    </p>
+                    <div class="main-container min-w-[0vw] max-w-[80vw] ">
+                        <div class="carousel-container">
+                            <!--  slider 1  -->
+                            <div class="carousel" style="
                                              --width: 10vh; 
                                              --height: 10vh; 
                                              --quantity: 10;
                                              --duration: 15s">
-                            <div class="carousel__list">
-                                <i class="carousel__item fa-brands fa-apple" style="--position: 1 color"></i>
-                                <i class="carousel__item fa-brands fa-windows" style="--position: 2"></i>
-                                <i class="carousel__item fa-brands fa-cc-visa" style="--position: 3"></i>
-                                <i class="carousel__item fa-brands fa-dribbble" style="--position: 4"></i>
-                                <i class="carousel__item fa-brands fa-airbnb" style="--position: 5"></i>
-                                <i class="carousel__item fa-brands fa-amazon" style="--position: 6"></i>
-                                <i class="carousel__item fa-brands fa-imdb" style="--position: 7"></i>
-                                <i class="carousel__item fa-brands fa-linkedin" style="--position: 8"></i>
-                                <i class="carousel__item fa-brands fa-facebook" style="--position: 9"></i>
-                                <i class="carousel__item fa-brands fa-twitter" style="--position: 10"></i>
+                                <div class="carousel__list">
+                                    <i class="carousel__item fa-brands fa-apple" style="--position: 1 color"></i>
+                                    <i class="carousel__item fa-brands fa-windows" style="--position: 2"></i>
+                                    <i class="carousel__item fa-brands fa-cc-visa" style="--position: 3"></i>
+                                    <i class="carousel__item fa-brands fa-dribbble" style="--position: 4"></i>
+                                    <i class="carousel__item fa-brands fa-airbnb" style="--position: 5"></i>
+                                    <i class="carousel__item fa-brands fa-amazon" style="--position: 6"></i>
+                                    <i class="carousel__item fa-brands fa-imdb" style="--position: 7"></i>
+                                    <i class="carousel__item fa-brands fa-linkedin" style="--position: 8"></i>
+                                    <i class="carousel__item fa-brands fa-facebook" style="--position: 9"></i>
+                                    <i class="carousel__item fa-brands fa-twitter" style="--position: 10"></i>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <!-- slider 2 -->
-                        <div class="carousel" reverse="true" style="
+                            <br>
+                            <!-- slider 2 -->
+                            <div class="carousel" reverse="true" style="
                                              --width: 110px; 
                                              --height: 50px; 
                                              --quantity: 10;
                                              --duration: 15s">
-                            <div class="carousel__list">
-                                <i class="carousel__item fa-brands fa-apple" style="--position: 1"></i>
-                                <i class="carousel__item fa-brands fa-windows" style="--position: 2"></i>
-                                <i class="carousel__item fa-brands fa-cc-visa" style="--position: 3"></i>
-                                <i class="carousel__item fa-brands fa-dribbble" style="--position: 4"></i>
-                                <i class="carousel__item fa-brands fa-airbnb" style="--position: 5"></i>
-                                <i class="carousel__item fa-brands fa-amazon" style="--position: 6"></i>
-                                <i class="carousel__item fa-brands fa-imdb" style="--position: 7"></i>
-                                <i class="carousel__item fa-brands fa-linkedin" style="--position: 8"></i>
-                                <i class="carousel__item fa-brands fa-facebook" style="--position: 9"></i>
-                                <i class="carousel__item fa-brands fa-twitter" style="--position: 10"></i>
+                                <div class="carousel__list">
+                                    <i class="carousel__item fa-brands fa-apple" style="--position: 1"></i>
+                                    <i class="carousel__item fa-brands fa-windows" style="--position: 2"></i>
+                                    <i class="carousel__item fa-brands fa-cc-visa" style="--position: 3"></i>
+                                    <i class="carousel__item fa-brands fa-dribbble" style="--position: 4"></i>
+                                    <i class="carousel__item fa-brands fa-airbnb" style="--position: 5"></i>
+                                    <i class="carousel__item fa-brands fa-amazon" style="--position: 6"></i>
+                                    <i class="carousel__item fa-brands fa-imdb" style="--position: 7"></i>
+                                    <i class="carousel__item fa-brands fa-linkedin" style="--position: 8"></i>
+                                    <i class="carousel__item fa-brands fa-facebook" style="--position: 9"></i>
+                                    <i class="carousel__item fa-brands fa-twitter" style="--position: 10"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
-
-            <div>
+                <div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="min-h-[100vh]"></div>
-    <!-- SCRIPTS -->
-    <!-- EMBLA  -->
-    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-    <script src="https://unpkg.com/embla-carousel-auto-scroll@8.1.7/embla-carousel-auto-scroll.umd.js"></script>
-    <!-- VANTA -->
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- VANTA -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
-    <script src="https://www.vantajs.com/dist/vanta.trunk.min.js"></script>
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- USER SCRIPT -->
-    <script src="script.js"></script>
+        <div class="min-h-[100vh]"></div>
+        <!-- SCRIPTS -->
+        <!-- EMBLA  -->
+        <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+        <script src="https://unpkg.com/embla-carousel-auto-scroll@8.1.7/embla-carousel-auto-scroll.umd.js"></script>
+        <!-- VANTA -->
+        <!-- Three.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <!-- VANTA -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+        <script src="https://www.vantajs.com/dist/vanta.trunk.min.js"></script>
+        <!-- GSAP -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+            integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- ScrollTrigger -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <!-- USER SCRIPT -->
+        <script src="script.js"></script>
 </body>
 
 </html>

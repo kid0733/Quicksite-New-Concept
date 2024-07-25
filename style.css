@@ -12,6 +12,17 @@ body {
     overflow-x: hidden;
 }
 
+::selection {
+    background: #FFEFDA;
+    color: #E8C89E;
+}
+
+/* For Firefox */
+::-moz-selection {
+    background: #FFEFDA;
+    color: #E8C89E;
+}
+
 /* COMPANY COLORS */
 .green01 {
     color: #E8F2EA;
@@ -49,58 +60,77 @@ body {
     color: #256924;
 }
 
+
 /* NAVBAR */
-nav {
-    position: sticky;
-    transition: backdrop-filter 0.3s ease;
+.hamburger {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #FFF2E0;
+}
+
+.nav-items {
     display: flex;
-    background-color: rgba(100, 100, 100, 0.2);
+
+}
+
+.nav-container {
+    padding: 3vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(4, 71, 80, 0.2);
+    height: 5vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(19px);
+    -webkit-backdrop-filter: blur(19px);
+}
+
+.nav-container.solid {
+    background-color: rgba(4, 71, 80, 1);
+}
+
+.nav-container ul {
+    margin: 0;
     padding: 0;
-    justify-content: center;
-    z-index: 10;
-    backdrop-filter: blur(2px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    min-height: 50px;
-    width: 100vw;
-    align-items: center;
-}
-
-nav:hover {
-    backdrop-filter: blur(10px);
-}
-
-.nav-link {
-    z-index: 10;
-    transition: border 0.2s ease;
-    text-decoration: none;
-    color: white;
-    padding: 3px 25px;
-    margin: 10px 5px;
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 25px;
-    font-size: 32px;
-}
-
-.nav-link:hover {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(32px);
-}
-
-.nav-flex {
     display: flex;
-    align-items: center;
+    list-style: none;
     justify-content: space-between;
     width: 100%;
 }
 
-.nav-logo {
-    height: 50px;
-    margin-left: 5vh;
+.nav-container li {
+    list-style: none;
+    display: inline;
 }
 
-.nav-button {
+.nav-container li a {
     text-decoration: none;
-    color: white;
+    padding: 2vh 5vh;
+    font-size: 2vh;
+    border-radius: 4px;
+    color: #76b785;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in;
+    font-family: "Spinnaker", sans-serif;
+}
+
+.nav-container li a:hover {
+    background-color: #76b785;
+    color: #033810;
+    border-radius: 15px;
 }
 
 /* VANTA-BG */
@@ -240,7 +270,7 @@ nav:hover {
 
 /* 
 **********
-EMBLA
+TEMPLATE IMAGE CAROUSEL
 
 ********
 
@@ -274,6 +304,69 @@ EMBLA
     transition: all 0.3s ease-in-out;
 }
 
+/* 
+**********
+Mobile View CAROUSEL
+********
+*/
+
+svg {
+    position: fixed;
+    top: 10;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    margin-top: 10vh;
+    overflow: hidden;
+}
+
+.blur {
+    filter: blur(20px);
+}
+
+/* Mobile View Carousel */
+.mobile-carousel {
+    overflow-x: clip;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    /* Ensure carousel is above the SVG animation */
+}
+
+.mobile-carousel-inner {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    padding: 12vh 0;
+    will-change: transform;
+}
+
+.mobile-carousel-inner img {
+    height: 20%;
+    transition: transform 0.5s;
+    flex-shrink: 0;
+    border-radius: 2rem;
+}
+
+.mobile-carousel-inner img:hover {
+    transform: scale(1.03);
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .mobile-carousel-inner img {
+        height: 30%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mobile-carousel-inner img {
+        height: 40%;
+    }
+}
+
 /*Icon Carousel */
 .main-container {
     height: 20vh;
@@ -285,7 +378,7 @@ EMBLA
     width: 100%;
     height: var(--height);
     overflow: hidden;
-    
+
 }
 
 .carousel:hover .carousel__item {
@@ -368,53 +461,81 @@ EMBLA
     }
 }
 
+.steps {
+    background-image: url("assets/steps.svg");
+}
 
-/* General Styles */
-.team-slider {
-    width: 80%;
+/* FEATURES INTRO */
+.features-intro-slider {
     overflow: hidden;
     position: relative;
-    margin-bottom: -15vh;
+    width: 100%;
 }
 
-.team-slider-inner {
+.features-intro-slider-inner {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
 }
 
-.team-slider-item {
+.features-intro-slider-item {
     min-width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-.team-slider-item img {
+.features-intro-slider-item img {
     border-radius: 32px;
     max-width: 40vw;
     object-fit: cover;
 }
 
-.text-container {
-    background-color: #1c1c1c;
+.features-intro-img img {
+    object-fit: cover;
+}
+
+.features-intro-text-container {
     padding: 2rem;
     border-radius: 32px;
-    margin-left: 2vw;
-    color: #d0dad1;
+    margin-left: 1vw;
+    color: #E8C89E;
+    flex: 1;
+    max-width: 40vw;
+    box-sizing: border-box;
+    height: 40vh;
 }
 
-.subtitle {
-    font-style: italic;
-    margin-top: 2vh;
+.features-intro-title {
+    color: #fff;
 }
 
-.description {
-    font-style: italic;
-    margin-top: 2vh;
+.button {
+    cursor: pointer;
+    display: inline-block;
+    /* Ensures the padding increases the clickable area */
+    font-weight: bold;
+    color: #76b785;
+    background-color: #033810;
+    padding: 1.5vh 4vh;
+    /* Increased padding for larger clickable area */
+    border-radius: 3vh;
+    border: 0.5vh solid #76b785;
+    -webkit-box-shadow: 0px 1vh #43392B;
+    box-shadow: 0px 8px #2e2a25;
 }
 
-.team-slider-controls {
+.button:active {
+    position: relative;
+    top: 1vh;
+    border: 6px solid #033810;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+}
+
+.features-intro-slider-controls {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -423,36 +544,90 @@ EMBLA
     transform: translateY(-50%);
 }
 
-.team-slider-control {
+.features-intro-slider-control {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 10px;
     border: none;
     cursor: pointer;
-
 }
 
-.team-slider-control:hover {
+.features-intro-slider-control:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Mobile View */
 @media (max-width: 768px) {
-    .team-slider-item {
-        flex-direction: column;
-        align-items: center;
+    .features-intro-slider {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
     }
-    .team-slider-item img {
-        max-width: 80vw;
-        min-height: 50vh;
-        border-radius: 0%;
-        object-fit: contain;
 
+    .features-intro-slider-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
     }
-    .text-container{
-        min-width: 75vw;
+
+    .features-intro-slider-item {
+        flex-direction: column;
+        box-sizing: border-box;
     }
-    .team-slider-item{
-        padding: 0;
+
+    .features-intro-slider-item img {
+        border-radius: 0%;
+        object-fit: cover;
+    }
+
+    .features-intro-text-container {
+        min-width: 85vw;
+        margin: 1rem 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        /* Hide navbar items by default */
+    }
+
+    .nav-container ul.show {
+        display: flex;
+        /* Show navbar items when .show class is added */
+    }
+
+    .nav-container li {
+        width: 100%;
+    }
+
+    .nav-container li a {
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+        color:#033810 ;
+    }
+
+    .hamburger {
+        display: block;
+        /* Show the hamburger menu on mobile */
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-content p {
+        font-size: 4vh;
+    }
+
+    .scroll-svg {
+        max-width: 50px;
     }
 }
