@@ -10,31 +10,32 @@ VANTA.TRUNK({
     mouseControls: true,
     touchControls: true,
     gyroControls: true,
-    minHeight: 200.0,
+    minHeight: 500.0,
     minWidth: 200.0,
-    scale: 0.8,
+    scale: 5,
     scaleMobile: 1.0,
     color: 0xa9d6b4,
     backgroundColor: 0xe8f2ea,
-    spacing: 10,
-    chaos: 1.5
+    spacing: 20,
+    chaos: 5
 });
 
 
 
-// IMAGE ROTATION
-const card = document.querySelector(".card__inner");
 
-window.addEventListener("scroll", function () {
-    // Get the scroll position
-    const scrollPosition = window.scrollY*1.25;
+// // IMAGE ROTATION
+// const card = document.querySelector(".card__inner");
 
-    // Calculate rotation angle (adjust the factor as needed)
-    const rotationAngle = scrollPosition * 0.08;
+// window.addEventListener("scroll", function () {
+//     // Get the scroll position
+//     const scrollPosition = window.scrollY*1.25;
 
-    // Apply the rotation transform
-    card.style.transform = `rotateX(${rotationAngle}deg)`;
-});
+//     // Calculate rotation angle (adjust the factor as needed)
+//     const rotationAngle = scrollPosition * 0.08;
+
+//     // Apply the rotation transform
+//     card.style.transform = `rotateX(${rotationAngle}deg)`;
+// });
 
 
 // 
@@ -55,6 +56,21 @@ window.onload = function () {
         .from("#title,#title1", { scale: 0.5, duration: 1 }, 0)
         .from("#heroText", { opacity: 0, duration: 5 }, 0);
 
+
+    // image rotation
+    gsap.to(".card__inner", {
+        rotateX: 35,//change for sensitivity of rotation
+
+
+        scrollTrigger: {
+            trigger: ".card",
+            start: "top 115%",
+            end: "bottom 100%",
+            scrub: 1,
+
+
+        }
+    })
     // Adding ScrollTrigger for #imgCarouselText
     gsap.from("#imgCarouselText", {
 
@@ -86,7 +102,7 @@ window.onload = function () {
         opacity: 0,
         y: 100,
         scale: 0.5,
-        delay:0.5,
+        delay: 0.5,
         ease: "power1.inOut",
         scrollTrigger: {
             trigger: "#featuresCarouselTitle",
@@ -137,7 +153,7 @@ window.onload = function () {
         },
         duration: 1
     });
-    
+
     ScrollTrigger.create({
         start: "top top",
         onUpdate: (self) => {
@@ -146,7 +162,7 @@ window.onload = function () {
                     backgroundColor: "#033810",
                     duration: 0.3,
                     opacity: 0.95,
-                    blur:20
+                    blur: 20
                 });
             } else {
                 gsap.to(".nav-container", {
@@ -162,37 +178,95 @@ window.onload = function () {
 // 
 // Template Image Carousel
 // 
-document.addEventListener("DOMContentLoaded", () => {
-    const marquee = document.querySelector(".marquee-inner");
-    const speed = 1; // Scrolling Speed
-    let scrollAmount = 0;
-    let isHovered = false;
+function moveToSelected(element) {
+    let selected;
 
-    // Duplicates the content
-    const marqueeContent = marquee.innerHTML;
-    marquee.innerHTML += marqueeContent;
-
-    const startScrolling = () => {
-        if (!isHovered) {
-            scrollAmount -= speed;
-            if (Math.abs(scrollAmount) >= marquee.scrollWidth / 2) {
-                scrollAmount = 0;
-            }
-            marquee.style.transform = `translateX(${scrollAmount}px)`;
+    if (element === "next") {
+        selected = document.querySelector(".templates-carousel-selected")
+            .nextElementSibling;
+        if (!selected) {
+            selected = document.querySelector("#templates-carousel div:first-child");
         }
-        requestAnimationFrame(startScrolling);
-    };
+    } else if (element === "prev") {
+        selected = document.querySelector(".templates-carousel-selected")
+            .previousElementSibling;
+        if (!selected) {
+            selected = document.querySelector("#templates-carousel div:last-child");
+        }
+    } else {
+        selected = element;
+    }
 
-    marquee.addEventListener("mouseover", () => {
-        isHovered = true;
-    });
+    const next =
+        selected.nextElementSibling ||
+        document.querySelector("#templates-carousel div:first-child");
+    const prev =
+        selected.previousElementSibling ||
+        document.querySelector("#templates-carousel div:last-child");
+    const prevSecond =
+        prev.previousElementSibling ||
+        document.querySelector("#templates-carousel div:last-child")
+            .previousElementSibling;
+    const nextSecond =
+        next.nextElementSibling ||
+        document.querySelector("#templates-carousel div:first-child")
+            .nextElementSibling;
 
-    marquee.addEventListener("mouseout", () => {
-        isHovered = false;
-    });
+    gsap.set(selected, { className: "templates-carousel-selected" });
 
-    startScrolling();
+    gsap.set(prev, { className: "templates-carousel-prev" });
+    gsap.set(next, { className: "templates-carousel-next" });
+
+    gsap.set(nextSecond, { className: "templates-carousel-nextRightSecond" });
+    gsap.set(prevSecond, { className: "templates-carousel-prevLeftSecond" });
+
+    gsap.set(
+        [
+            nextSecond.nextElementSibling,
+            nextSecond.nextElementSibling.nextElementSibling,
+            nextSecond.nextElementSibling.nextElementSibling.nextElementSibling
+        ],
+        { className: "templates-carousel-hideRight" }
+    );
+    gsap.set(
+        [
+            prevSecond.previousElementSibling,
+            prevSecond.previousElementSibling.previousElementSibling,
+            prevSecond.previousElementSibling.previousElementSibling
+                .previousElementSibling
+        ],
+        { className: "templates-carousel-hideLeft" }
+    );
+}
+
+document.addEventListener("keydown", function (e) {
+    switch (e.which) {
+        case 37: // left
+            moveToSelected("prev");
+            break;
+        case 39: // right
+            moveToSelected("next");
+            break;
+        default:
+            return;
+    }
+    e.preventDefault();
 });
+
+document.querySelectorAll("#templates-carousel div").forEach(function (item) {
+    item.addEventListener("click", function () {
+        moveToSelected(this);
+    });
+});
+
+document.getElementById("prev").addEventListener("click", function () {
+    moveToSelected("prev");
+});
+
+document.getElementById("next").addEventListener("click", function () {
+    moveToSelected("next");
+});
+
 
 
 //Mobile View Carousel
