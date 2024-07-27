@@ -178,94 +178,88 @@ window.onload = function () {
 // 
 // Template Image Carousel
 // 
-function moveToSelected(element) {
-    let selected;
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
 
-    if (element === "next") {
-        selected = document.querySelector(".templates-carousel-selected")
-            .nextElementSibling;
-        if (!selected) {
-            selected = document.querySelector("#templates-carousel div:first-child");
-        }
-    } else if (element === "prev") {
-        selected = document.querySelector(".templates-carousel-selected")
-            .previousElementSibling;
-        if (!selected) {
-            selected = document.querySelector("#templates-carousel div:last-child");
-        }
-    } else {
-        selected = element;
+    var carousel = document.getElementsByClassName('template-carousel')[0],
+        slider = carousel.getElementsByClassName('template-carousel__slider')[0],
+        items = carousel.getElementsByClassName('template-carousel__slider__item'),
+        prevBtn = carousel.getElementsByClassName('template-carousel__prev')[0],
+        nextBtn = carousel.getElementsByClassName('template-carousel__next')[0];
+
+    var width, height, totalWidth, margin = 20,
+        currIndex = 0,
+        interval, intervalTime = 4000;
+
+    function init() {
+        resize();
+        move(Math.floor(items.length / 2));
+        bindEvents();
+
+        timer();
     }
 
-    const next =
-        selected.nextElementSibling ||
-        document.querySelector("#templates-carousel div:first-child");
-    const prev =
-        selected.previousElementSibling ||
-        document.querySelector("#templates-carousel div:last-child");
-    const prevSecond =
-        prev.previousElementSibling ||
-        document.querySelector("#templates-carousel div:last-child")
-            .previousElementSibling;
-    const nextSecond =
-        next.nextElementSibling ||
-        document.querySelector("#templates-carousel div:first-child")
-            .nextElementSibling;
+    function resize() {
+        width = Math.max(window.innerWidth * .25, 275);
+        height = window.innerHeight * 0.5;
+        totalWidth = width * items.length;
 
-    gsap.set(selected, { className: "templates-carousel-selected" });
+        slider.style.width = totalWidth + "px";
 
-    gsap.set(prev, { className: "templates-carousel-prev" });
-    gsap.set(next, { className: "templates-carousel-next" });
-
-    gsap.set(nextSecond, { className: "templates-carousel-nextRightSecond" });
-    gsap.set(prevSecond, { className: "templates-carousel-prevLeftSecond" });
-
-    gsap.set(
-        [
-            nextSecond.nextElementSibling,
-            nextSecond.nextElementSibling.nextElementSibling,
-            nextSecond.nextElementSibling.nextElementSibling.nextElementSibling
-        ],
-        { className: "templates-carousel-hideRight" }
-    );
-    gsap.set(
-        [
-            prevSecond.previousElementSibling,
-            prevSecond.previousElementSibling.previousElementSibling,
-            prevSecond.previousElementSibling.previousElementSibling
-                .previousElementSibling
-        ],
-        { className: "templates-carousel-hideLeft" }
-    );
-}
-
-document.addEventListener("keydown", function (e) {
-    switch (e.which) {
-        case 37: // left
-            moveToSelected("prev");
-            break;
-        case 39: // right
-            moveToSelected("next");
-            break;
-        default:
-            return;
+        for (var i = 0; i < items.length; i++) {
+            let item = items[i];
+            item.style.width = (width - (margin * 2)) + "px";
+            item.style.height = height + "px";
+        }
     }
-    e.preventDefault();
+
+    function move(index) {
+
+        if (index < 1) index = items.length;
+        if (index > items.length) index = 1;
+        currIndex = index;
+
+        for (var i = 0; i < items.length; i++) {
+            let item = items[i],
+                box = item.getElementsByClassName('item__3d-frame')[0];
+            if (i == (index - 1)) {
+                item.classList.add('template-carousel__slider__item--active');
+                box.style.transform = "perspective(1200px)";
+            } else {
+                item.classList.remove('template-carousel__slider__item--active');
+                box.style.transform = "perspective(1200px) rotateY(" + (i < (index - 1) ? 40 : -40) + "deg)";
+            }
+        }
+
+        slider.style.transform = "translate3d(" + ((index * -width) + (width / 2) + window.innerWidth / 2) + "px, 0, 0)";
+    }
+
+    function timer() {
+        clearInterval(interval);
+        interval = setInterval(() => {
+            move(++currIndex);
+        }, intervalTime);
+    }
+
+    function prev() {
+        move(--currIndex);
+        timer();
+    }
+
+    function next() {
+        move(++currIndex);
+        timer();
+    }
+
+    function bindEvents() {
+        window.onresize = resize;
+        prevBtn.addEventListener('click', () => { prev(); });
+        nextBtn.addEventListener('click', () => { next(); });
+    }
+
+    init();
 });
 
-document.querySelectorAll("#templates-carousel div").forEach(function (item) {
-    item.addEventListener("click", function () {
-        moveToSelected(this);
-    });
-});
-
-document.getElementById("prev").addEventListener("click", function () {
-    moveToSelected("prev");
-});
-
-document.getElementById("next").addEventListener("click", function () {
-    moveToSelected("next");
-});
 
 
 
