@@ -178,13 +178,63 @@ window.onload = function () {
 // 
 // Template Image Carousel
 // 
-const embla = EmblaCarousel(document.querySelector('.embla'), {
-    loop: true,
-    align: 'start',
-    skipSnaps: true,
-})
+document.addEventListener('DOMContentLoaded', function () {
+    const carouselContainer = document.querySelector('.carousel__container');
+    const slides = document.querySelectorAll('.carousel__slide');
+    const prevButton = document.querySelector('.carousel__button--prev');
+    const nextButton = document.querySelector('.carousel__button--next');
 
+    let currentIndex = 0;
+    const autoScrollInterval = 3000; // Auto scroll interval in milliseconds
+    let autoScroll;
 
+    const updateSlidesOpacity = () => {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('carousel__slide--active');
+            if (index === currentIndex) {
+                slide.classList.add('carousel__slide--active');
+            }
+        });
+    };
+
+    const goToSlide = index => {
+        currentIndex = index;
+        const offset = -currentIndex * 100; // Adjust the offset to fit the new slide width
+        carouselContainer.style.transform = `translateX(${offset}%)`;
+        updateSlidesOpacity();
+    };
+
+    const startAutoScroll = () => {
+        autoScroll = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }, autoScrollInterval);
+    };
+
+    const stopAutoScroll = () => {
+        clearInterval(autoScroll);
+    };
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(currentIndex);
+        stopAutoScroll();
+        startAutoScroll();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        goToSlide(currentIndex);
+        stopAutoScroll();
+        startAutoScroll();
+    });
+
+    carouselContainer.addEventListener('mouseover', stopAutoScroll);
+    carouselContainer.addEventListener('mouseout', startAutoScroll);
+
+    updateSlidesOpacity();
+    startAutoScroll();
+});
 
 
 //Mobile View Carousel
