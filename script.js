@@ -64,9 +64,9 @@ window.onload = function () {
 
         scrollTrigger: {
             trigger: ".card",
-            start: "top 55%",
+            start: "top 85%",
             end: "bottom 100%",
-            scrub: 1,
+            scrub: 0.001,
 
 
         }
