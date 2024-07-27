@@ -335,7 +335,7 @@ TEMPLATE IMAGE CAROUSEL
 .template-carousel__slider {
     position: relative;
     transition: transform 1s ease-in-out;
-    background: var(--crsl-bg);
+    background: transparent;
 }
 
 .template-carousel__slider__item {
@@ -376,7 +376,7 @@ TEMPLATE IMAGE CAROUSEL
     text-align: center;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 30vh;
     box-sizing: border-box;
     border-color: var(--box-border);
     background: var(--box-bg);

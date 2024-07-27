@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (var i = 0; i < items.length; i++) {
             let item = items[i];
             item.style.width = (width - (margin * 2)) + "px";
-            item.style.height = height + "px";
+            item.style.height = 40 + "vh";
         }
     }
 
