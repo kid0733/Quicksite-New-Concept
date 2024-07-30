@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>QuickSite Guru</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,250 +8,375 @@
     <meta name="keywords" content="example, awesome, web page" />
     <meta property="og:title" content="QuickSite Guru" />
     <meta property="og:description" content="QuickSite - Do Web Better" />
-    <meta property="og:image"
-        content="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/R4WD5hMCiU8RzIehMKc0.webp" />
-    <link rel="icon"
-        href="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/R4WD5hMCiU8RzIehMKc0.webp"
-        type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta
+      property="og:image"
+      content="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/R4WD5hMCiU8RzIehMKc0.webp"
+    />
+    <link
+      rel="icon"
+      href="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/R4WD5hMCiU8RzIehMKc0.webp"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/@studio-freight/lenis@1.0.0/dist/lenis.umd.js"
+      defer
+    ></script>
+    <!-- Add this to your HTML file -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.0/dist/lenis.umd.js"></script>
+    <script src="script.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="flex flex-col items-stretch h-full w-full">
-        <!-- NAVBAR -->
-        <!-- NAVBAR -->
-        <div class="nav-container">
-            <button class="hamburger" onclick="toggleNav()">☰</button>
-            <ul class="nav-items">
-                <li><a class="active" href="#">HOME</a></li>
-                <li><a class="active" href="#">Features</a></li>
-                <li><a class="active" href="#">Team</a></li>
-                <li><a class="active" href="#">Pricing</a></li>
-                <li><a class="active" href="#">CONTACT</a></li>
-            </ul>
+      <!-- NAVBAR -->
+      <div class="nav-container">
+        <button class="hamburger" onclick="toggleNav()">☰</button>
+        <ul class="nav-items">
+          <li><a class="active" href="#">HOME</a></li>
+          <li><a class="active" href="#">Features</a></li>
+          <li><a class="active" href="#">Team</a></li>
+          <li><a class="active" href="#">Pricing</a></li>
+          <li><a class="active" href="#">CONTACT</a></li>
+        </ul>
+      </div>
+
+      <!-- BACKGROUND -->
+      <!-- <div class="top-0 left-0 w-full h-[150vh] z-0" id="background"></div> -->
+      <!-- BACKGROUND -->
+      <div class="top-0 left-0 w-full h-[100vh] z-0 background">
+        <img src="assets/Trunks.webp" alt="" id="background" />
+      </div>
+
+      <!-- HeroSection -->
+      <div class="w-full h-[10vh]"></div>
+      <div
+        class="flex flex-col flex-1 w-full z-10 items-center justify-flex-start mt-[5vh]"
+      >
+        <div>
+          <p
+            class="text-[5vh] leading-[5vh] font-bold green08 max-w-[60vw]"
+            id="title"
+          >
+            Build and Host for Free with
+          </p>
+          <p
+            class="text-[5vh] leading-[5vh] font-bold green06 max-w-[60vw]"
+            id="title1"
+          >
+            QuickSite Guru
+          </p>
+          <p class="text-[2vh] mt-[5vh] max-w-[60vw] green08" id="heroText">
+            Kickstart your online adventure effortlessly with QuickSite Guru!
+            Our AI-powered platform and modular templates make it a breeze for
+            businesses to create stunning websites.
+          </p>
+          <div>
+            <a href="https://app.quicksite.guru/" class="btn first"
+              >Try For Free</a
+            >
+          </div>
         </div>
 
-        <!-- BACKGROUND -->
-        <div class="top-0 left-0 w-full h-[150vh] z-0" id="background"></div>
-
-        <!-- HeroSection -->
-        <div class="w-full h-[10vh]"></div>
-        <div class="flex flex-col flex-1 w-full z-10 items-center justify-flex-start mt-[5vh]">
-            <div>
-                <p class="text-[5vh] leading-[5vh] font-bold green08 max-w-[60vw]" id="title">Build and Host for Free
-                    with </p>
-                <p class="text-[5vh] leading-[5vh] font-bold green06 max-w-[60vw]" id="title1">QuickSite Guru </p>
-                <p class="text-[2vh] mt-[5vh] max-w-[60vw] green08" id="heroText">
-                    Kickstart your online adventure effortlessly with QuickSite Guru! Our AI-powered platform and
-                    modular templates make it a breeze for businesses to create stunning websites.
-                </p>
-                <div class="">
-                    <a href="https://app.quicksite.guru/" class="btn first">Try For Free</a>
-                </div>
-            </div>
-
-            <!-- HERO IMG -->
-            <div class="card" id="heroImg">
-                <div class="card__inner">
-                    <img src="assets/HERO-BG-001.webp" loading="eager" class="card__face card__face--front" />
-
-                </div>
-            </div>
-            <!-- Features Section -->
-            <div class="min-h-[100vh] flex flex-col justify-center items-center overflow-hidden">
-                <div class="flex flex-col flex-1 w-[90vw] z-10 items-center justify-flex-start pt-[5vh] min-h-full my-[5vh] rounded-[2vh] overflow-hidden"
-                    id="featuresCarousel">
-                    <div id="imgCarouselText2">
-                        <p id="featuresCarouselTitle"
-                            class="text-[5vh] leading-[5vh] font-bold green08 text-center max-w-[100vw] p-10 spinnaker">
-                            Our Features</p>
-                        <p id="featuresCarouselText"
-                            class="text-[2vh] leading-[3vh] font-regular green08 text-center max-w-[100vw] p-10 spinnaker">
-                            Discover our exclusive collection of website templates, each designed to elevate your online
-                            presence with style and functionality. Perfect for businesses, personal blogs, or creative
-                            portfolios, these templates will make your site stand out.
-                        </p>
-                    </div>
-                    <!-- CAROUSEL SLIDER -->
-                    <div class="features-intro-slider bg-[#033810] max-w-[85vw] rounded-[2vh]"
-                        id="features_intro_slider_container">
-                        <div class="features-intro-slider-inner">
-                            <!-- CAROUSEL ITEM 1 -->
-                            <div class="features-intro-slider-item">
-                                <div class="features-intro-text-container">
-                                    <h2 class="features-intro-title green05 text-[4.8vh]">
-                                        <span class="green04">Enhance and Optimize </span> Your Meta Content
-                                    </h2>
-                                    <div>
-                                        <button class="button spinnaker mb-[2vh]">Try Free Now</button>
-                                    </div>
-                                    <p class="features-intro-description green01">
-                                        Effortlessly customize your personal website with our intuitive HTML head
-                                        section/tag, designed for simple editing and ensuring your site reflects your
-                                        unique style and needs.
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/bgTtETjoWZLWPiqlX53f.png"
-                                        alt="Smart Website Builder" class="features-intro-img h-[40vh] w-[40vw]" />
-                                </div>
-                            </div>
-                            <!-- CAROUSEL ITEM 2 -->
-                            <div class="features-intro-slider-item">
-                                <div class="features-intro-text-container">
-                                    <h2 class="features-intro-title sand05 text-[4vh]">
-                                        <span class="green04">Swift, Customizable, Effective</span> Meta Content
-                                        Features
-                                    </h2>
-                                    <div>
-                                        <button class="button spinnaker mb-[2vh]">Try Free Now</button>
-                                    </div>
-                                    <p class="features-intro-description green01">
-                                        Instantly access customizable texts, SVGs and images contents from templates,
-                                        empowering you to edit content with previews to ensure seamless adjustments.
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/TFWROifbpnhpVSsvcEfs.png"
-                                        alt="Smart Website Builder" class="features-intro-img h-[40vh] w-[40vw]" />
-                                </div>
-                            </div>
-                            <!-- CAROUSEL ITEM 3 -->
-                            <div class="features-intro-slider-item">
-                                <div class="features-intro-text-container">
-                                    <h2 class="features-intro-title sand05 text-[4.8vh]">
-                                        <span class="green04">Smart, AI-Assisted</span> Website Creation Tool
-                                    </h2>
-                                    <div>
-                                        <button class="button spinnaker mb-[2vh]">Try Free Now</button>
-                                    </div>
-                                    <p class="features-intro-description green01">
-                                        Leverage advanced AI technology to guide and assist you in building your
-                                        website, ensuring a seamless and efficient creation process tailored to your
-                                        needs.
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/rSLFxcVZ0onAihUzK1K3.png"
-                                        alt="Smart Website Builder" class="features-intro-img h-[40vh] w-[40vw]" />
-                                </div>
-                            </div>
-                            <!-- CAROUSEL ITEM 4 -->
-
-                            <!-- Add more carousel items as needed -->
-                        </div>
-                        <div class="features-intro-slider-controls">
-                            <button class="features-intro-slider-control" id="features_intro_prev">&lt;</button>
-                            <button class="features-intro-slider-control" id="features_intro_next">&gt;</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- MOBILE VIEW CAROUSEL -->
-
-            <div class="min-w-[100vw] bg-[#1d211e]" id="mobileViewCarousel">
-                <div id="infoSectionText">
-                    <p id="mobileCarouselTitle"
-                        class="text-[5vh] leading-[5vh] font-bold green04 max-w-[100vw] mt-[10vh] p-10">Create
-                        with AI, Deploy Instantly</p>
-                    <p id="mobileCarouselText" class="text-[2vh] leading-[3vh] font-medium green02 max-w-[100vw] p-10">
-                        Break Free from
-                        Unclear Expectations, Beat Short Deadlines, and Conquer Limited Budgets to Build Your Dream
-                        Product!</p>
-                </div>
-
-                <!-- Image Carousel -->
-                <div class="mobile-carousel" id="imgCarousel">
-                    <div class="mobile-carousel-inner">
-                        <img src="assets/Mobile-001.webp" alt="Beauty Template" loading="lazy" />
-                        <img src="assets/Laptop-001.webp" alt="Coffee Template" loading="lazy" />
-                        <img src="assets/Mobile-002.webp" alt="Cooking Template" loading="lazy" />
-                        <img src="assets/Laptop-002.webp" alt="D-Kor Template" loading="lazy" />
-                        <img src="assets/Mobile-003.webp" alt="Pashmina Template" loading="lazy" />
-                        <img src="assets/Laptop-003.webp" alt="Education Template" loading="lazy" />
-                    </div>
-                </div>
-
-            </div>
-                        <!-- Templates -->
-                        <div class="min-w-[100vw] bg-[#1d211e]">
-                            <div id="imgCarouselText">
-                                <p class="text-[5vh] leading-[5vh] font-bold text-center green03 max-w-[100vw]  mt-[10vh] p-10">Our Templates
-                                </p>
-                                <p class="text-[2vh] leading-[3vh] font-regular text-center green02 max-w-[100vw] p-10 ">Discover our exclusive
-                                    collection of website templates, each designed to elevate your online presence with style and
-                                    functionality. Perfect for businesses, personal blogs, or creative portfolios, these templates
-                                    will
-                                    make your site stand out.
-                                </p>
-                            </div>
-                        </div>
-            <!-- TEMPLATE CAROUSEL -->
-            <div class="min-w-[100vw] min-h-[50vh] bg-[#1d211e]">
-                <section class="carousel">
-                    <div class="carousel__viewport">
-                        <div class="carousel__container">
-                            <div class="carousel__slide">
-                                <img src="assets/Coffee.webp" class="img-fluid rounded-top" alt="" />
-
-                            </div>
-                            <div class="carousel__slide">
-                                <img src="assets/d-kor.webp" class="img-fluid rounded-top" alt="" />
-                            </div>
-                            <div class="carousel__slide">
-                                <img src="assets/education.webp" class="img-fluid rounded-top" alt="" />
-                            </div>
-                            <div class="carousel__slide">
-                                <img src="assets/d-kor.webp" class="img-fluid rounded-top" alt="" />
-                            </div>
-                            <div class="carousel__slide">
-                                <img src="assets/Furniture.png" class="img-fluid rounded-top" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel__controls">
-                        <button class="carousel__button carousel__button--prev">‹</button>
-                        <button class="carousel__button carousel__button--next">›</button>
-                    </div>
-                </section>
-
-            </div>
-
-
-
-            <!-- BUFFER   -->
-
-
+        <!-- HERO IMG -->
+        <div class="card" id="heroImg">
+          <div class="card__inner">
+            <img
+              src="assets/HERO-BG-001.webp"
+              loading="eager"
+              class="card__face card__face--front"
+            />
+          </div>
         </div>
+
+        <!-- Features Section -->
+        <div
+          class="min-h-[100vh] flex flex-col justify-center items-center overflow-hidden features"
+        >
+          <div
+            class="flex flex-col flex-1 w-[90vw] z-10 items-center justify-flex-start pt-[5vh] min-h-full my-[5vh] rounded-[2vh] overflow-hidden"
+            id="featuresCarousel"
+          >
+            <div id="imgCarouselText2">
+              <p
+                id="featuresCarouselTitle"
+                class="text-[5vh] leading-[5vh] font-bold green08 text-center max-w-[100vw] p-10 spinnaker"
+              >
+                Our Features
+              </p>
+              <p
+                id="featuresCarouselText"
+                class="text-[2vh] leading-[3vh] font-regular green08 text-center max-w-[100vw] p-10 spinnaker"
+              >
+                Discover our exclusive collection of website templates, each
+                designed to elevate your online presence with style and
+                functionality. Perfect for businesses, personal blogs, or
+                creative portfolios, these templates will make your site stand
+                out.
+              </p>
+            </div>
+
+            <!-- FEATURES CAROUSEL SLIDER -->
+            <div
+              class="features-intro-slider bg-[#1d211e] max-w-[85vw] rounded-[2vh]"
+              id="features_intro_slider_container"
+            >
+              <div class="features-intro-slider-inner">
+                <!-- CAROUSEL ITEM 1 -->
+                <div class="features-intro-slider-item">
+                  <div class="features-intro-text-container">
+                    <h2 class="features-intro-title green05 text-[4.8vh]">
+                      <span class="green04">Enhance and Optimize </span> Your
+                      Meta Content
+                    </h2>
+                    <div>
+                      <button class="button spinnaker mb-[2vh]">
+                        Try Free Now
+                      </button>
+                    </div>
+                    <p class="features-intro-description green01">
+                      Effortlessly customize your personal website with our
+                      intuitive HTML head section/tag, designed for simple
+                      editing and ensuring your site reflects your unique style
+                      and needs.
+                    </p>
+                  </div>
+                  <div class="features-img-mobile">
+                    <img
+                      src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/bgTtETjoWZLWPiqlX53f.png"
+                      alt="Smart Website Builder"
+                      class="features-intro-img h-[40vh] w-[40vw]"
+                    />
+                  </div>
+                </div>
+                <!-- CAROUSEL ITEM 2 -->
+                <div class="features-intro-slider-item">
+                  <div class="features-intro-text-container">
+                    <h2 class="features-intro-title sand05 text-[4vh]">
+                      <span class="green04"
+                        >Swift, Customizable, Effective</span
+                      >
+                      Meta Content Features
+                    </h2>
+                    <div>
+                      <button class="button spinnaker mb-[2vh]">
+                        Try Free Now
+                      </button>
+                    </div>
+                    <p class="features-intro-description green01">
+                      Instantly access customizable texts, SVGs and images
+                      contents from templates, empowering you to edit content
+                      with previews to ensure seamless adjustments.
+                    </p>
+                  </div>
+                  <div>
+                    <img
+                      src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/TFWROifbpnhpVSsvcEfs.png"
+                      alt="Smart Website Builder"
+                      class="features-intro-img h-[40vh] w-[40vw]"
+                    />
+                  </div>
+                </div>
+                <!-- CAROUSEL ITEM 3 -->
+                <div class="features-intro-slider-item">
+                  <div class="features-intro-text-container">
+                    <h2 class="features-intro-title sand05 text-[4.8vh]">
+                      <span class="green04">Smart, AI-Assisted</span> Website
+                      Creation Tool
+                    </h2>
+                    <div>
+                      <button class="button spinnaker mb-[2vh]">
+                        Try Free Now
+                      </button>
+                    </div>
+                    <p class="features-intro-description green01">
+                      Leverage advanced AI technology to guide and assist you in
+                      building your website, ensuring a seamless and efficient
+                      creation process tailored to your needs.
+                    </p>
+                  </div>
+                  <div>
+                    <img
+                      src="https://anai-qkkmajrefx5hn8hsgjn4-assets.s3.ap-southeast-2.amazonaws.com/rSLFxcVZ0onAihUzK1K3.png"
+                      alt="Smart Website Builder"
+                      class="features-intro-img h-[40vh] w-[40vw]"
+                    />
+                  </div>
+                </div>
+                <!-- Add more carousel items as needed -->
+              </div>
+              <div class="features-intro-slider-controls">
+                <button
+                  class="features-intro-slider-control"
+                  id="features_intro_prev"
+                >
+                  &lt;
+                </button>
+                <button
+                  class="features-intro-slider-control"
+                  id="features_intro_next"
+                >
+                  &gt;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOBILE VIEW CAROUSEL -->
+        <div class="min-w-[100vw] bg-[#1d211e]" id="mobileViewCarousel">
+          <div id="infoSectionText">
+            <p
+              id="mobileCarouselTitle"
+              class="text-[5vh] leading-[5vh] font-bold green04 max-w-[100vw] mt-[10vh] p-10"
+            >
+              Create with AI, Deploy Instantly
+            </p>
+            <p
+              id="mobileCarouselText"
+              class="text-[2vh] leading-[3vh] font-medium green02 max-w-[100vw] p-10"
+            >
+              Break Free from Unclear Expectations, Beat Short Deadlines, and
+              Conquer Limited Budgets to Build Your Dream Product!
+            </p>
+          </div>
+
+          <!-- Image Carousel -->
+          <div class="mobile-carousel" id="imgCarousel">
+            <div class="mobile-carousel-inner">
+              <img
+                src="assets/Mobile-001.webp"
+                alt="Beauty Template"
+                loading="lazy"
+              />
+              <img
+                src="assets/Laptop-001.webp"
+                alt="Coffee Template"
+                loading="lazy"
+              />
+              <img
+                src="assets/Mobile-002.webp"
+                alt="Cooking Template"
+                loading="lazy"
+              />
+              <img
+                src="assets/Laptop-002.webp"
+                alt="D-Kor Template"
+                loading="lazy"
+              />
+              <img
+                src="assets/Mobile-003.webp"
+                alt="Pashmina Template"
+                loading="lazy"
+              />
+              <img
+                src="assets/Laptop-003.webp"
+                alt="Education Template"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Templates -->
+        <div class="min-w-[100vw] bg-[#1d211e]">
+          <div id="imgCarouselText">
+            <p
+              class="text-[5vh] leading-[5vh] font-bold text-center green03 max-w-[100vw] mt-[10vh] p-10"
+            >
+              Our Templates
+            </p>
+            <p
+              class="text-[2vh] leading-[3vh] font-regular text-center green02 max-w-[100vw] p-10"
+            >
+              Discover our exclusive collection of website templates, each
+              designed to elevate your online presence with style and
+              functionality. Perfect for businesses, personal blogs, or creative
+              portfolios, these templates will make your site stand out.
+            </p>
+          </div>
+        </div>
+
+        <!-- TEMPLATE CAROUSEL -->
+        <div class="min-w-[100vw] min-h-[50vh] bg-[#1d211e]">
+          <section class="carousel">
+            <div class="carousel__viewport">
+              <div class="carousel__container">
+                <div class="carousel__slide">
+                  <img
+                    src="assets/Coffee.webp"
+                    class="img-fluid rounded-top"
+                    alt="Coffee Template"
+                  />
+                </div>
+                <div class="carousel__slide">
+                  <img
+                    src="assets/d-kor.webp"
+                    class="img-fluid rounded-top"
+                    alt="D-Kor Template"
+                  />
+                </div>
+                <div class="carousel__slide">
+                  <img
+                    src="assets/education.webp"
+                    class="img-fluid rounded-top"
+                    alt="Education Template"
+                  />
+                </div>
+                <div class="carousel__slide">
+                  <img
+                    src="assets/d-kor.webp"
+                    class="img-fluid rounded-top"
+                    alt="D-Kor Template"
+                  />
+                </div>
+                <div class="carousel__slide">
+                  <img
+                    src="assets/Furniture.png"
+                    class="img-fluid rounded-top"
+                    alt="Furniture Template"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="carousel__controls">
+              <button class="carousel__button carousel__button--prev">‹</button>
+              <button class="carousel__button carousel__button--next">›</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- BUFFER -->
         <div class="min-h-[100vh]"></div>
-        <!-- SCRIPTS -->
-        <!-- EMBLA  -->
-        <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-        <script src="https://unpkg.com/embla-carousel-auto-scroll@8.1.7/embla-carousel-auto-scroll.umd.js "
-            defer></script>
-        <!-- VANTA -->
-        <!-- Three.js -->
+      </div>
 
-        <!-- VANTA -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
-        <script src="https://www.vantajs.com/dist/vanta.trunk.min.js"></script>
-        <!-- GSAP -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-            integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-        <!-- ScrollTrigger -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-        <!-- USER SCRIPT -->
-        <script src="script.js"></script>
-</body>
-
+      <!-- SCRIPTS -->
+      <!-- <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+      <script
+        src="https://unpkg.com/embla-carousel-auto-scroll@8.1.7/embla-carousel-auto-scroll.umd.js"
+        defer
+      ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+      <script src="https://www.vantajs.com/dist/vanta.trunk.min.js"></script> -->
+    </div>
+  </body>
 </html>
